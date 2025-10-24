@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package media;
+
+service MediaService {
+  rpc UploadMedia (stream MediaChunk) returns (UploadResponse);
+}
+
+message MediaChunk {
+  string name = 1;
+  bytes data = 2;
+}
+
+message UploadResponse {
+  string file_id = 1;
+  string message = 2;
+}
